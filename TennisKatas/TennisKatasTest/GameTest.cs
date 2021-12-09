@@ -33,8 +33,7 @@ namespace TennisKatasTest
             Game game = new Game();
 
             game.StartGame();
-            game.PlayerOneScores();
-            game.PlayerOneScores();
+            PlayerOnePlays(game, 2);
 
             Assert.Equal("30-0", game.Score);
         }
@@ -45,9 +44,7 @@ namespace TennisKatasTest
             Game game = new Game();
 
             game.StartGame();
-            game.PlayerOneScores();
-            game.PlayerOneScores();
-            game.PlayerOneScores();
+            PlayerOnePlays(game, 3);
 
             Assert.Equal("40-0", game.Score);
         }
@@ -58,9 +55,7 @@ namespace TennisKatasTest
             Game game = new Game();
 
             game.StartGame();
-            game.PlayerOneScores();
-            game.PlayerOneScores();
-            game.PlayerOneScores();
+            PlayerOnePlays(game, 3);
 
             Assert.Equal("40-0", game.Score);
             Assert.Equal("Player 1", game.Winner);
@@ -72,8 +67,7 @@ namespace TennisKatasTest
             Game game = new Game();
 
             game.StartGame();
-            game.PlayerOneScores();
-            game.PlayerOneScores();
+            PlayerOnePlays(game, 2);
             game.PlayerSecondScores();
 
             Assert.Equal("30-15", game.Score);
@@ -84,8 +78,7 @@ namespace TennisKatasTest
             Game game = new Game();
 
             game.StartGame();
-            game.PlayerOneScores();
-            game.PlayerOneScores();
+            PlayerOnePlays(game, 2);
             game.PlayerSecondScores();
 
             Assert.Equal("30-15", game.Score);
@@ -97,13 +90,9 @@ namespace TennisKatasTest
             Game game = new Game();
 
             game.StartGame();
-            game.PlayerOneScores();
-            game.PlayerOneScores();
+            PlayerOnePlays(game, 2);
 
-            game.PlayerSecondScores();
-            game.PlayerSecondScores();
-            game.PlayerSecondScores();
-            game.PlayerSecondScores();
+            PlayerSecondPlays(game, 4);
 
             Assert.Equal("30-40", game.Score);
             Assert.Equal("Player 2", game.Winner);
@@ -115,13 +104,9 @@ namespace TennisKatasTest
             Game game = new Game();
 
             game.StartGame();
-            game.PlayerOneScores();
-            game.PlayerOneScores();
-            game.PlayerOneScores();
+            PlayerOnePlays(game, 3);
 
-            game.PlayerSecondScores();
-            game.PlayerSecondScores();
-            game.PlayerSecondScores();
+            PlayerSecondPlays(game, 3);
 
             game.PlayerOneScores();
 
@@ -134,13 +119,9 @@ namespace TennisKatasTest
             Game game = new Game();
 
             game.StartGame();
-            game.PlayerOneScores();
-            game.PlayerOneScores();
-            game.PlayerOneScores();
+            PlayerOnePlays(game, 3);
 
-            game.PlayerSecondScores();
-            game.PlayerSecondScores();
-            game.PlayerSecondScores();
+            PlayerSecondPlays(game, 3);
 
             game.PlayerOneScores();
 
@@ -149,6 +130,20 @@ namespace TennisKatasTest
             Assert.Equal("40-40", game.Score);
         }
 
-        //TODO faire des boucles de jeu pour éviter d'avoir à duppliquer du code
+        private void PlayerOnePlays(Game game, int time)
+        {
+            for(int i = 0; i<time; i++)
+            {
+                game.PlayerOneScores();
+            }
+        }
+
+        private void PlayerSecondPlays(Game game, int time)
+        {
+            for (int i = 0; i < time; i++)
+            {
+                game.PlayerSecondScores();
+            }
+        }
     }
 }

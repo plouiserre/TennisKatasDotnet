@@ -1,17 +1,25 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace TennisKatas
 {
     public class Game
     {
-        private int scorePlayerOne;
-        private int scorePlayerTwo;
 
+        //private int scorePlayerOne;
+        //private int scorePlayerTwo;
+
+        private Dictionary<int, int> scores;
+                
         public string Score { get; set; }
 
         public string Winner { get; set; }
 
         public Game()
         {
+            scores = new Dictionary<int, int>();
+            scores.Add(1, 0);
+            scores.Add(2, 0);
         }
 
         public void StartGame()
@@ -21,8 +29,9 @@ namespace TennisKatas
 
         public void PlayerOneScores()
         {
-            scorePlayerOne = DetermineScore(scorePlayerOne);
-            if (scorePlayerOne == 40)
+            int score = DetermineScore(scores[1],1);
+            scores[1] = score;
+            if (scores[1] == 40)
             {
                 Winner = "Player 1";
             }
@@ -31,15 +40,17 @@ namespace TennisKatas
 
         public void PlayerSecondScores()
         {
-            scorePlayerTwo = DetermineScore(scorePlayerTwo);
-            if (scorePlayerTwo == 40)
+            int score = DetermineScore(scores[2],2) ;
+            scores[2] = score;
+            if (scores[2] == 40)
             {
                 Winner = "Player 2";
             }
             GetScore();
         }
 
-        private int DetermineScore(int score)
+        //TODO modifier cette méthode car elle est nulle
+        private int DetermineScore(int score, int keyPlayer)
         {
             if (score == 0)
             {
@@ -49,9 +60,15 @@ namespace TennisKatas
             {
                 score = 30;
             }
-            else if (scorePlayerOne == 40 && scorePlayerTwo == 40)
+            else if (scores[1] == 40 && scores[2] == 40)
             {
                 score = 50;
+            }
+            else if((scores[1] == 50 && keyPlayer == 2) || (scores[2] == 50 && keyPlayer == 1))
+            {
+                //on baisse le score de l'autre adversaire
+                int k = keyPlayer == 1 ? 2 : 1;
+                scores[k] = 40;
             }
             else
             {
@@ -62,17 +79,17 @@ namespace TennisKatas
 
         private void GetScore()
         {
-            if (scorePlayerOne == 50)
+            if (scores[1] == 50)
             {
-                Score = string.Concat("A-", scorePlayerTwo.ToString());
+                Score = string.Concat("A-", scores[2].ToString());
             }
-            else if (scorePlayerTwo == 50)
+            else if (scores[2] == 50)
             {
-                Score = string.Concat(scorePlayerOne.ToString(), "-A");
+                Score = string.Concat(scores[1].ToString(), "-A");
             }
             else
             {
-                Score = string.Concat(scorePlayerOne.ToString(), "-", scorePlayerTwo.ToString());
+                Score = string.Concat(scores[1].ToString(), "-", scores[2].ToString());
             }
         }
     }
