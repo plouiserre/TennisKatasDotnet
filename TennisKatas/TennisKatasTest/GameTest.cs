@@ -91,7 +91,6 @@ namespace TennisKatasTest
 
             game.StartGame();
             PlayerOnePlays(game, 2);
-
             PlayerSecondPlays(game, 4);
 
             Assert.Equal("30-40", game.Score);
@@ -105,9 +104,7 @@ namespace TennisKatasTest
 
             game.StartGame();
             PlayerOnePlays(game, 3);
-
             PlayerSecondPlays(game, 3);
-
             game.PlayerOneScores();
 
             Assert.Equal("A-40", game.Score);
@@ -120,14 +117,38 @@ namespace TennisKatasTest
 
             game.StartGame();
             PlayerOnePlays(game, 3);
-
             PlayerSecondPlays(game, 3);
-
             game.PlayerOneScores();
-
             game.PlayerSecondScores();
-
             Assert.Equal("40-40", game.Score);
+        }
+
+        [Fact]
+        public void PlayerOneScoresThreeTimePlayerSecondWinGame()
+        {
+            Game game = new Game();
+
+            game.StartGame();
+            PlayerSecondPlays(game, 3);
+            PlayerOnePlays(game, 3);
+            PlayerSecondPlays(game, 2);
+
+            Assert.Equal("Player 2", game.Winner);
+        }
+
+        [Fact]
+        public void PlayerOneBeatPlayerSecondInLongGame()
+        {
+            Game game = new Game();
+
+            game.StartGame();
+            PlayerOnePlays(game, 3);
+            PlayerSecondPlays(game, 3);
+            game.PlayerOneScores();
+            game.PlayerSecondScores();
+            PlayerOnePlays(game, 2);
+
+            Assert.Equal("Player 1", game.Winner);
         }
 
         private void PlayerOnePlays(Game game, int time)
