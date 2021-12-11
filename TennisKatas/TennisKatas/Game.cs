@@ -6,9 +6,6 @@ namespace TennisKatas
     public class Game
     {
 
-        //private int scorePlayerOne;
-        //private int scorePlayerTwo;
-
         private Dictionary<int, int> scores;
                 
         public string Score { get; set; }
