@@ -5,38 +5,55 @@ namespace TennisKatas
 {
     public class Set
     {
-        public Dictionary<int,int> Scores { get; set; }
-        public string Winner { get; set; }
+        public Player Player1 { get; set; }
+        public Player Player2 { get; set; }
+        public string Score { get; set; }
+
+        public Set()
+        {
+            Player1 = new Player()
+            {
+                Identity = 1,
+                Score = 0
+            };
+            Player2 = new Player()
+            {
+                Identity = 2,
+                Score = 0
+            };
+        }
 
         public void SetStart()
         {
-            Scores = new Dictionary<int, int>();
-            Scores.Add(1, 0);
-            Scores.Add(2, 0);
+            Score = "0-0";
         }
 
         public void PlayerOneScoreGames(int games)
         {
-            for (int i = 0; i < games; i++)
-            {
-                //TODO améliorer
-                int score = Scores[1] + 1;
-                Scores[1] = score;
-            }
-            if (Scores[1] == 6)
-                Winner = "Player 1";
+            PlayerScore(games, Player1);
         }
 
         public void PlayerTwoScoreGames(int games)
         {
+            PlayerScore(games, Player2);
+        }
+
+        private void PlayerScore(int games, Player player)
+        {
             for (int i = 0; i < games; i++)
             {
                 //TODO améliorer
-                int score = Scores[2] + 1;
-                Scores[2] = score;
+                int score = player.Score + 1;
+                player.Score = score;
             }
-            if (Scores[2] == 6)
-                Winner = "Player 2";
+            if (player.Score == 6)
+                player.IsWinner = true;
+            SetScores();
+        }
+
+        private void SetScores()
+        {
+            Score = string.Format("{0}-{1}", Player1.Score, Player2.Score);
         }
     }
 }

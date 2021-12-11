@@ -17,9 +17,7 @@ namespace TennisKatasTest
 
             set.SetStart();
 
-            Assert.Equal(2, set.Scores.Count);
-            Assert.Equal(0, set.Scores[1]);
-            Assert.Equal(0, set.Scores[2]);
+            Assert.Equal("0-0", set.Score);
         }
 
         [Fact]
@@ -31,9 +29,10 @@ namespace TennisKatasTest
             set.PlayerOneScoreGames(6);
             set.PlayerTwoScoreGames(4);
 
-            Assert.Equal(6, set.Scores[1]);
-            Assert.Equal(4, set.Scores[2]);
-            Assert.Equal("Player 1", set.Winner);
+            Assert.Equal(6, set.Player1.Score);
+            Assert.Equal(4, set.Player2.Score);
+            Assert.Equal("6-4", set.Score);
+            Assert.True(set.Player1.IsWinner);            
         }
 
         [Fact]
@@ -45,9 +44,10 @@ namespace TennisKatasTest
             set.PlayerOneScoreGames(2);
             set.PlayerTwoScoreGames(6);
 
-            Assert.Equal(2, set.Scores[1]);
-            Assert.Equal(6, set.Scores[2]);
-            Assert.Equal("Player 2", set.Winner);
+            Assert.Equal(2, set.Player1.Score);
+            Assert.Equal(6, set.Player2.Score);
+            Assert.Equal("2-6", set.Score);
+            Assert.True(set.Player2.IsWinner);
         }
     }
 }
