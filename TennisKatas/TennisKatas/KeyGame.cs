@@ -42,9 +42,14 @@ namespace TennisKatas
         {
             player.Score = score;
             Score = string.Format("{0}-{1}", Player1.Score, Player2.Score);
-            if (Player1.Score >= 7)
+            DetermineWinner();
+        }
+
+        private void DetermineWinner()
+        {
+            if (Player1.Score >= 7 && (Player1.Score - Player2.Score >= 2))
                 Player1.IsWinner = true;
-            else if (Player2.Score >= 7)
+            else if (Player2.Score >= 7 && (Player2.Score - Player1.Score >= 2))
                 Player2.IsWinner = true;
         }
     }
