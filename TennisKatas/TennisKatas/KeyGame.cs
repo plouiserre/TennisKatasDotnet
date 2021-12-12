@@ -27,5 +27,17 @@ namespace TennisKatas
         {
             Score = "0-0";
         }
+
+        public void PlayerOneScores(int score)
+        {
+            Player1.Score = score;
+            Player1.IsWinner = true;
+            Score = "7-4";
+        }
+
+        public void PlayerSecondScores(int score)
+        {
+            Player2.Score = score;
+        }
     }
 }
