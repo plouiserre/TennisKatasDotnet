@@ -58,7 +58,7 @@ namespace TennisKatasTest
             PlayerOnePlays(game, 3);
 
             Assert.Equal("40-0", game.Score);
-            Assert.Equal("Player 1", game.Winner);
+            Assert.True(game.Player1.IsWinner) ;
         }
 
         [Fact]
@@ -94,7 +94,7 @@ namespace TennisKatasTest
             PlayerSecondPlays(game, 4);
 
             Assert.Equal("30-40", game.Score);
-            Assert.Equal("Player 2", game.Winner);
+            Assert.True(game.Player2.IsWinner);
         }
 
         [Fact]
@@ -133,7 +133,7 @@ namespace TennisKatasTest
             PlayerOnePlays(game, 3);
             PlayerSecondPlays(game, 2);
 
-            Assert.Equal("Player 2", game.Winner);
+            Assert.True(game.Player2.IsWinner);
         }
 
         [Fact]
@@ -148,7 +148,7 @@ namespace TennisKatasTest
             game.PlayerSecondScores();
             PlayerOnePlays(game, 2);
 
-            Assert.Equal("Player 1", game.Winner);
+            Assert.True(game.Player1.IsWinner);
         }
 
         private void PlayerOnePlays(Game game, int time)
