@@ -46,9 +46,18 @@ namespace TennisKatas
                 int score = player.Score + 1;
                 player.Score = score;
             }
-            if (player.Score == 6)
-                player.IsWinner = true;
+            DetermineWinner(player);
             SetScores();
+        }
+
+        private void DetermineWinner(Player player)
+        {
+            if ((Player1.Score == 5 && Player2.Score == 6) || (Player1.Score == 6 && Player2.Score == 5))
+                player.IsWinner = false;
+            else if (player.Score == 6)
+                player.IsWinner = true;
+            else
+                player.IsWinner = false;
         }
 
         private void SetScores()
