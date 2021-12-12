@@ -30,14 +30,22 @@ namespace TennisKatas
 
         public void PlayerOneScores(int score)
         {
-            Player1.Score = score;
-            Player1.IsWinner = true;
-            Score = "7-4";
+            PlayerScore(Player1, score);
         }
 
         public void PlayerSecondScores(int score)
         {
-            Player2.Score = score;
+            PlayerScore(Player2, score);
+        }
+
+        private void PlayerScore(Player player, int score)
+        {
+            player.Score = score;
+            Score = string.Format("{0}-{1}", Player1.Score, Player2.Score);
+            if (Player1.Score >= 7)
+                Player1.IsWinner = true;
+            else if (Player2.Score >= 7)
+                Player2.IsWinner = true;
         }
     }
 }
