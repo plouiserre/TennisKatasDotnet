@@ -68,5 +68,21 @@ namespace TennisKatasTest
             Assert.False(keyGame.Player1.IsWinner);
             Assert.False(keyGame.Player2.IsWinner);
         }
+
+        [Fact]
+        public void PlayerOneScoreSixPointsPlayerTwoScoresEightPointsAndWinGames()
+        {
+            KeyGame keyGame = new KeyGame();
+
+            keyGame.StartKeyGame();
+            keyGame.PlayerOneScores(6);
+            keyGame.PlayerSecondScores(8);
+
+            Assert.Equal(6, keyGame.Player1.Score);
+            Assert.Equal(8, keyGame.Player2.Score);
+            Assert.Equal("6-8", keyGame.Score);
+            Assert.False(keyGame.Player1.IsWinner);
+            Assert.True(keyGame.Player2.IsWinner);
+        }
     }
 }
