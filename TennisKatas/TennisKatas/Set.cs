@@ -8,6 +8,7 @@ namespace TennisKatas
         public Player Player1 { get; set; }
         public Player Player2 { get; set; }
         public string Score { get; set; }
+        public bool IsKeyGameNeed { get; set; }
 
         public Set()
         {
@@ -47,6 +48,7 @@ namespace TennisKatas
                 player.Score = score;
             }
             DetermineWinner(player);
+            DetermineIsKeyGamesNeeded();
             SetScores();
         }
 
@@ -54,7 +56,7 @@ namespace TennisKatas
         {
             if ((Player1.Score == 5 && Player2.Score == 6) || (Player1.Score == 6 && Player2.Score == 5))
                 player.IsWinner = false;
-            else if (player.Score == 6)
+            else if (player.Score == 6 && ((Player1.Score - Player2.Score >= 2) || (Player2.Score - Player1.Score >= 2)))
                 player.IsWinner = true;
             else if (player.Score > 5 && (player.Identity == 1 && (Player1.Score - Player2.Score == 2)))
                 player.IsWinner = true;
@@ -67,6 +69,14 @@ namespace TennisKatas
         private void SetScores()
         {
             Score = string.Format("{0}-{1}", Player1.Score, Player2.Score);
+        }
+
+        private void DetermineIsKeyGamesNeeded()
+        {
+            if (Player1.Score == 6 && Player2.Score == 6)
+                IsKeyGameNeed = true;
+            else
+                IsKeyGameNeed = false;
         }
     }
 }
