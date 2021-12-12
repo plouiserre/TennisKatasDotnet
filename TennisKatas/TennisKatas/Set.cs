@@ -56,6 +56,10 @@ namespace TennisKatas
                 player.IsWinner = false;
             else if (player.Score == 6)
                 player.IsWinner = true;
+            else if (player.Score > 5 && (player.Identity == 1 && (Player1.Score - Player2.Score == 2)))
+                player.IsWinner = true;
+            else if (player.Score > 5 && (player.Identity == 2 && (Player2.Score - Player1.Score == 2)))
+                player.IsWinner = true;
             else
                 player.IsWinner = false;
         }
