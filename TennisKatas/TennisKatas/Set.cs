@@ -83,15 +83,25 @@ namespace TennisKatas
 
         public void PlayerOnePlayKeyGames(int point)
         {
-            PlayerPlayKeyGames(point);
+            //PlayerPlayKeyGames(Player1, point);
+            KeyGame.PlayerOneScores(point);
+            LinkResultKeyGamesSet();
         }
 
         public void PlayerSecondPlayKeyGames(int point)
         {
-            PlayerPlayKeyGames(point);
+            //PlayerPlayKeyGames(Player2, point);
+            KeyGame.PlayerSecondScores(point);
+            LinkResultKeyGamesSet();
         }
 
-        private void PlayerPlayKeyGames(int point)
+        private void LinkResultKeyGamesSet()
+        {
+            Player1.IsWinner = KeyGame.Player1.IsWinner;
+            Player2.IsWinner = KeyGame.Player2.IsWinner;
+        }
+
+        /*private void PlayerPlayKeyGames(Player player, int point)
         {
             KeyGame.Player1.Score = 7;
             KeyGame.Player2.Score = 5;
@@ -99,6 +109,6 @@ namespace TennisKatas
             KeyGame.Player1.IsWinner = true;
             KeyGame.Player2.IsWinner = false;
             Player1.IsWinner = true;
-        }
+        }*/
     }
 }
