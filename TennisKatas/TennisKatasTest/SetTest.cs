@@ -101,5 +101,55 @@ namespace TennisKatasTest
             Assert.False(set.Player2.IsWinner);
             Assert.True(set.IsKeyGameNeed);
         }
+
+        [Fact]
+        public void PlayerSecondScoreSixGamesPlayerOneScoreSixGamesWinKeyGamesAndSet()
+        {
+            Set set = new Set();
+
+            set.SetStart();
+            set.PlayerOneScoreGames(5);
+            set.PlayerTwoScoreGames(6);
+            set.PlayerOneScoreGames(1);
+            set.PlayerOnePlayKeyGames(7);
+            set.PlayerSecondPlayKeyGames(5);
+
+            Assert.Equal(6, set.Player1.Score);
+            Assert.Equal(6, set.Player2.Score);
+            Assert.Equal("6-6", set.Score);
+            Assert.True(set.IsKeyGameNeed);
+            Assert.Equal(7, set.KeyGame.Player1.Score);
+            Assert.Equal(5, set.KeyGame.Player2.Score);
+            Assert.Equal("7-5", set.KeyGame.Score);
+            Assert.True(set.KeyGame.Player1.IsWinner);
+            Assert.False(set.KeyGame.Player2.IsWinner);
+            Assert.True(set.Player1.IsWinner);
+            Assert.False(set.Player2.IsWinner);
+        }
+
+        [Fact]
+        public void PlayerOneScoreSixGamesPlayerSecondScoreSixGamesWinKeyGamesAndSet()
+        {
+            Set set = new Set();
+
+            set.SetStart();
+            set.PlayerOneScoreGames(5);
+            set.PlayerTwoScoreGames(6);
+            set.PlayerOneScoreGames(1);
+            set.PlayerOnePlayKeyGames(5);
+            set.PlayerSecondPlayKeyGames(7);
+
+            Assert.Equal(6, set.Player1.Score);
+            Assert.Equal(6, set.Player2.Score);
+            Assert.Equal("6-6", set.Score);
+            Assert.True(set.IsKeyGameNeed);
+            Assert.Equal(5, set.KeyGame.Player1.Score);
+            Assert.Equal(7, set.KeyGame.Player2.Score);
+            Assert.Equal("5-7", set.KeyGame.Score);
+            Assert.False(set.KeyGame.Player1.IsWinner);
+            Assert.True(set.KeyGame.Player2.IsWinner);
+            Assert.False(set.Player1.IsWinner);
+            Assert.True(set.Player2.IsWinner);
+        }
     }
 }

@@ -9,6 +9,7 @@ namespace TennisKatas
         public Player Player2 { get; set; }
         public string Score { get; set; }
         public bool IsKeyGameNeed { get; set; }
+        public KeyGame KeyGame{get;set;}
 
         public Set()
         {
@@ -27,6 +28,7 @@ namespace TennisKatas
         public void SetStart()
         {
             Score = "0-0";
+            KeyGame = new KeyGame();
         }
 
         public void PlayerOneScoreGames(int games)
@@ -48,8 +50,8 @@ namespace TennisKatas
                 player.Score = score;
             }
             DetermineWinner(player);
-            DetermineIsKeyGamesNeeded();
             SetScores();
+            PlayedKeyGames();
         }
 
         private void DetermineWinner(Player player)
@@ -71,12 +73,42 @@ namespace TennisKatas
             Score = string.Format("{0}-{1}", Player1.Score, Player2.Score);
         }
 
-        private void DetermineIsKeyGamesNeeded()
+        private void PlayedKeyGames()
         {
             if (Player1.Score == 6 && Player2.Score == 6)
                 IsKeyGameNeed = true;
             else
                 IsKeyGameNeed = false;
         }
+
+        public void PlayerOnePlayKeyGames(int point)
+        {
+            //PlayerPlayKeyGames(Player1, point);
+            KeyGame.PlayerOneScores(point);
+            LinkResultKeyGamesSet();
+        }
+
+        public void PlayerSecondPlayKeyGames(int point)
+        {
+            //PlayerPlayKeyGames(Player2, point);
+            KeyGame.PlayerSecondScores(point);
+            LinkResultKeyGamesSet();
+        }
+
+        private void LinkResultKeyGamesSet()
+        {
+            Player1.IsWinner = KeyGame.Player1.IsWinner;
+            Player2.IsWinner = KeyGame.Player2.IsWinner;
+        }
+
+        /*private void PlayerPlayKeyGames(Player player, int point)
+        {
+            KeyGame.Player1.Score = 7;
+            KeyGame.Player2.Score = 5;
+            KeyGame.Score = "7-5";
+            KeyGame.Player1.IsWinner = true;
+            KeyGame.Player2.IsWinner = false;
+            Player1.IsWinner = true;
+        }*/
     }
 }
