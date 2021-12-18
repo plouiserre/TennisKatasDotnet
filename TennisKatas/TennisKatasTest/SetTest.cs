@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using TennisKatas;
 using Xunit;
 
@@ -150,6 +151,36 @@ namespace TennisKatasTest
             Assert.True(set.KeyGame.Player2.IsWinner);
             Assert.False(set.Player1.IsWinner);
             Assert.True(set.Player2.IsWinner);
+        }
+
+        [Fact]
+        public void PlayersWinNineGameOneWinsSixGamesSecondWinsThreeGamesOneWinsSet()
+        {
+            Set set = new Set();
+            var gamesPlayerOne = PlayerWinsGames(6);
+            var gamesPlayerSecond = PlayerWinsGames(3);
+
+            set.SetStart();
+            set.PlayerOneScoreGames(gamesPlayerOne);
+            set.PlayerTwoScoreGames(gamesPlayerSecond);
+
+            Assert.Equal(6, set.Player1.Score);
+            Assert.Equal(3, set.Player2.Score);
+            Assert.Equal("6-3", set.Score);
+            Assert.True(set.Player1.IsWinner);
+            Assert.False(set.Player2.IsWinner);
+
+        }
+
+        private List<Game> PlayerWinsGames(int gamesPoint)
+        {
+            List<Game> games = new List<Game>();
+            for (int i = 0; i < gamesPoint; i++)
+            {
+                var game = new Game() { Player1 = new Player() { IsWinner = true } };
+                games.Add(game);
+            }
+            return games;
         }
     }
 }

@@ -10,7 +10,7 @@ namespace TennisKatas
         public string Score { get; set; }
         public bool IsKeyGameNeed { get; set; }
         public KeyGame KeyGame{get;set;}
-
+        
         public Set()
         {
             Player1 = new Player()
@@ -31,6 +31,11 @@ namespace TennisKatas
             KeyGame = new KeyGame();
         }
 
+        public void PlayerOneScoreGames(List<Game> games)
+        {
+            PlayerScore(games.Count, Player1);
+        }
+
         public void PlayerOneScoreGames(int games)
         {
             PlayerScore(games, Player1);
@@ -39,6 +44,11 @@ namespace TennisKatas
         public void PlayerTwoScoreGames(int games)
         {
             PlayerScore(games, Player2);
+        }
+
+        public void PlayerTwoScoreGames(List<Game> games)
+        {
+            PlayerScore(games.Count, Player2);
         }
 
         private void PlayerScore(int games, Player player)
@@ -83,14 +93,12 @@ namespace TennisKatas
 
         public void PlayerOnePlayKeyGames(int point)
         {
-            //PlayerPlayKeyGames(Player1, point);
             KeyGame.PlayerOneScores(point);
             LinkResultKeyGamesSet();
         }
 
         public void PlayerSecondPlayKeyGames(int point)
         {
-            //PlayerPlayKeyGames(Player2, point);
             KeyGame.PlayerSecondScores(point);
             LinkResultKeyGamesSet();
         }
@@ -100,15 +108,5 @@ namespace TennisKatas
             Player1.IsWinner = KeyGame.Player1.IsWinner;
             Player2.IsWinner = KeyGame.Player2.IsWinner;
         }
-
-        /*private void PlayerPlayKeyGames(Player player, int point)
-        {
-            KeyGame.Player1.Score = 7;
-            KeyGame.Player2.Score = 5;
-            KeyGame.Score = "7-5";
-            KeyGame.Player1.IsWinner = true;
-            KeyGame.Player2.IsWinner = false;
-            Player1.IsWinner = true;
-        }*/
     }
 }
