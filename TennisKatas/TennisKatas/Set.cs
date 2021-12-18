@@ -36,16 +36,6 @@ namespace TennisKatas
             PlayerScore(games.Count, Player1);
         }
 
-        public void PlayerOneScoreGames(int games)
-        {
-            PlayerScore(games, Player1);
-        }
-
-        public void PlayerTwoScoreGames(int games)
-        {
-            PlayerScore(games, Player2);
-        }
-
         public void PlayerTwoScoreGames(List<Game> games)
         {
             PlayerScore(games.Count, Player2);
