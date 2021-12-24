@@ -41,6 +41,15 @@ namespace TennisKatas
             PlayerScore(games.Count, Player2);
         }
 
+        public void GetsInfosFromScore()
+        {
+            var scores = Score.Split("-");
+            Player1.Score = int.Parse(scores[0]);
+            Player2.Score = int.Parse(scores[1]);
+            Player1.IsWinner = Player1.Score >= 6 && Player1.Score > Player2.Score? true : false;
+            Player2.IsWinner = Player2.Score >= 6 && Player2.Score > Player1.Score ? true : false;
+        }
+
         private void PlayerScore(int games, Player player)
         {
             for (int i = 0; i < games; i++)
