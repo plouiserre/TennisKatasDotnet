@@ -157,5 +157,86 @@ namespace TennisKatasTest
             }
             return games;
         }
+
+        [Fact]
+        public void PlayerOneScoreFiveSetPlayerTwoScoreTwoSetsNoWinner()
+        {
+            Set set = new Set();
+            set.Score = "5-2";
+
+            set.GetsInfosFromScore();
+
+            Assert.Equal(5, set.Player1.Score);
+            Assert.Equal(2, set.Player2.Score);
+        }
+
+        [Fact]
+        public void PlayerOneScoreFourSetPlayerTwoScoreFiveSetsNoWinner()
+        {
+            Set set = new Set();
+            set.Score = "4-5";
+
+            set.GetsInfosFromScore();
+
+            Assert.Equal(4, set.Player1.Score);
+            Assert.Equal(5, set.Player2.Score);
+        }
+
+
+        [Fact]
+        public void PlayerOneWinsSixSetPlayerTwoScoresTwoSets()
+        {
+            Set set = new Set();
+            set.Score = "6-2";
+
+            set.GetsInfosFromScore();
+
+            Assert.Equal(6, set.Player1.Score);
+            Assert.Equal(2, set.Player2.Score);
+            Assert.True(set.Player1.IsWinner);
+            Assert.False(set.Player2.IsWinner);
+        }
+
+        [Fact]
+        public void PlayerOneScoreThreeSetsPlayerTwoWinsSixSets()
+        {
+            Set set = new Set();
+            set.Score = "3-6";
+
+            set.GetsInfosFromScore();
+
+            Assert.Equal(3, set.Player1.Score);
+            Assert.Equal(6, set.Player2.Score);
+            Assert.False(set.Player1.IsWinner);
+            Assert.True(set.Player2.IsWinner);
+        }
+
+        [Fact]
+        public void PlayerOneWinsSevenSetsPlayerTwoScoresSixSets()
+        {
+            Set set = new Set();
+            set.Score = "7-6";
+
+            set.GetsInfosFromScore();
+
+            Assert.Equal(7, set.Player1.Score);
+            Assert.Equal(6, set.Player2.Score);
+            Assert.True(set.Player1.IsWinner);
+            Assert.False(set.Player2.IsWinner);
+        }
+
+        [Fact]
+        public void PlayerOneScoreSixSetsPlayerTwoWinsSevenSets()
+        {
+            Set set = new Set();
+            set.Score = "6-7";
+
+            set.GetsInfosFromScore();
+
+            Assert.Equal(6, set.Player1.Score);
+            Assert.Equal(7, set.Player2.Score);
+            Assert.False(set.Player1.IsWinner);
+            Assert.True(set.Player2.IsWinner);
+        }
     }
 }
