@@ -9,7 +9,7 @@ namespace TennisKatasTest
         [Fact]
         public void GameStart()
         {
-            Game game = new Game();
+            Game game = new Game(SexPlayer.Female);
 
             game.StartGame();
 
@@ -19,7 +19,7 @@ namespace TennisKatasTest
         [Fact]
         public void PlayerOneScoresOneTime()
         {
-            Game game = new Game();
+            Game game = new Game(SexPlayer.Female);
 
             game.StartGame();
             game.PlayerOneScores();
@@ -30,7 +30,7 @@ namespace TennisKatasTest
         [Fact]
         public void PlayerOneScoresTwoTimes()
         {
-            Game game = new Game();
+            Game game = new Game(SexPlayer.Female);
 
             game.StartGame();
             PlayerOnePlays(game, 2);
@@ -41,7 +41,7 @@ namespace TennisKatasTest
         [Fact]
         public void PlayerOneScoresThreeTimes()
         {
-            Game game = new Game();
+            Game game = new Game(SexPlayer.Female);
 
             game.StartGame();
             PlayerOnePlays(game, 3);
@@ -52,7 +52,7 @@ namespace TennisKatasTest
         [Fact]
         public void PlayerOneScoresFourTimesWinGame()
         {
-            Game game = new Game();
+            Game game = new Game(SexPlayer.Female);
 
             game.StartGame();
             PlayerOnePlays(game, 3);
@@ -64,7 +64,7 @@ namespace TennisKatasTest
         [Fact]
         public void PlayerOneScoresTwoTimesPlayerSecondScoresOnce()
         {
-            Game game = new Game();
+            Game game = new Game(SexPlayer.Female);
 
             game.StartGame();
             PlayerOnePlays(game, 2);
@@ -75,7 +75,7 @@ namespace TennisKatasTest
         [Fact]
         public void PlayerOneScoresFourTimesPlayerSecondScoresOnce()
         {
-            Game game = new Game();
+            Game game = new Game(SexPlayer.Female);
 
             game.StartGame();
             PlayerOnePlays(game, 2);
@@ -87,7 +87,7 @@ namespace TennisKatasTest
         [Fact]
         public void PlayerOneScoreTwoTimesPlayerSecondWinGame()
         {
-            Game game = new Game();
+            Game game = new Game(SexPlayer.Female);
 
             game.StartGame();
             PlayerOnePlays(game, 2);
@@ -100,7 +100,7 @@ namespace TennisKatasTest
         [Fact]
         public void PlayerOneScoreAvantagePlayerSecondScoreThreeTime()
         {
-            Game game = new Game();
+            Game game = new Game(SexPlayer.Female);
 
             game.StartGame();
             PlayerOnePlays(game, 3);
@@ -113,7 +113,7 @@ namespace TennisKatasTest
         [Fact]
         public void PlayerOnePlayerSecondEqualityAfterEachHaveAvantage()
         {
-            Game game = new Game();
+            Game game = new Game(SexPlayer.Female);
 
             game.StartGame();
             PlayerOnePlays(game, 3);
@@ -126,7 +126,7 @@ namespace TennisKatasTest
         [Fact]
         public void PlayerOneScoresThreeTimePlayerSecondWinGame()
         {
-            Game game = new Game();
+            Game game = new Game(SexPlayer.Female);
 
             game.StartGame();
             PlayerSecondPlays(game, 3);
@@ -139,7 +139,7 @@ namespace TennisKatasTest
         [Fact]
         public void PlayerOneBeatPlayerSecondInLongGame()
         {
-            Game game = new Game();
+            Game game = new Game(SexPlayer.Female);
 
             game.StartGame();
             PlayerOnePlays(game, 3);

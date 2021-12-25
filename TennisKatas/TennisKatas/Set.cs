@@ -3,22 +3,26 @@ using System.Collections.Generic;
 
 namespace TennisKatas
 {
+    //TODO revoir pour l'init des Players
     public class Set
     {
         public Player Player1 { get; set; }
         public Player Player2 { get; set; }
         public string Score { get; set; }
         public bool IsKeyGameNeed { get; set; }
-        public KeyGame KeyGame{get;set;}
+        public KeyGame KeyGame{ get; set;}
+
+        private SexPlayer _sexPlayer { get; set; }
         
-        public Set()
+        public Set(SexPlayer sexPlayer)
         {
-            Player1 = new Player()
+            _sexPlayer = sexPlayer;
+            Player1 = new Player(_sexPlayer)
             {
                 Identity = 1,
                 Score = 0
             };
-            Player2 = new Player()
+            Player2 = new Player(_sexPlayer)
             {
                 Identity = 2,
                 Score = 0
@@ -28,7 +32,7 @@ namespace TennisKatas
         public void SetStart()
         {
             Score = "0-0";
-            KeyGame = new KeyGame();
+            KeyGame = new KeyGame(_sexPlayer);
         }
 
         public void PlayerOneScoreGames(List<Game> games)

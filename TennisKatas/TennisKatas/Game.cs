@@ -5,6 +5,7 @@ using System.Linq;
 namespace TennisKatas
 {
     //TODO factoriser dans une classe mère surtout la partie joueur
+    //TODO revoir pour l'init des Players
     public class Game
     {
 
@@ -14,14 +15,14 @@ namespace TennisKatas
                 
         public string Score { get; set; }
 
-        public Game()
+        public Game(SexPlayer sexPlayer)
         {
-            Player1 = new Player()
+            Player1 = new Player(sexPlayer)
             {
                 Identity = 1,
                 Score = 0
             };
-            Player2 = new Player()
+            Player2 = new Player(sexPlayer)
             {
                 Identity = 2,
                 Score = 0
