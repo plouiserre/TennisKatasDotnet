@@ -9,20 +9,12 @@ namespace TennisKatas
         public Player Player2 { get; set; }
         public string Score { get; set; }
         public bool IsKeyGameNeed { get; set; }
-        public KeyGame KeyGame{get;set;}
-        
+        public KeyGame KeyGame{ get; set;}
+
         public Set()
         {
-            Player1 = new Player()
-            {
-                Identity = 1,
-                Score = 0
-            };
-            Player2 = new Player()
-            {
-                Identity = 2,
-                Score = 0
-            };
+            Player1 = new Player() { Identity = 1 };
+            Player2 = new Player() { Identity = 2 }; 
         }
 
         public void SetStart()
