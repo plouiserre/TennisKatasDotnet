@@ -18,7 +18,7 @@ namespace TennisKatasTest
         [Fact]
         public void SetStart()
         {
-            InitPlayer(SexPlayer.Female);
+            _set = new Set(SexPlayer.Female);
 
             _set.SetStart();
 
@@ -28,7 +28,7 @@ namespace TennisKatasTest
         [Fact]
         public void PlayersPlaysNineGameOneWinsSixGamesSecondWinsThreeGamesOneWinsSet()
         {
-            InitPlayer(SexPlayer.Female);
+            _set = new Set(SexPlayer.Female);
             var gamesPlayerOne = PlayerWinsGames(6);
             var gamesPlayerSecond = PlayerWinsGames(3);
 
@@ -46,7 +46,7 @@ namespace TennisKatasTest
         [Fact]
         public void PlayersPlaysEightGameOneWinsTwoGamesSecondWinsSixGamesSecondWinsSet()
         {
-            InitPlayer(SexPlayer.Female);
+            _set = new Set(SexPlayer.Female);
             var gamesPlayerOne = PlayerWinsGames(2);
             var gamesPlayerSecond = PlayerWinsGames(6);
 
@@ -64,7 +64,7 @@ namespace TennisKatasTest
         [Fact]
         public void PlayerOneScoreSixGamesPlayerSecondScoreFiveGameNoWinner()
         {
-            InitPlayer(SexPlayer.Female);
+            _set = new Set(SexPlayer.Female);
             var gamesPlayerOne = PlayerWinsGames(5);
             var gamesPlayerSecond = PlayerWinsGames(5);
             var nextGamesPlayerOne = PlayerWinsGames(1);
@@ -84,7 +84,7 @@ namespace TennisKatasTest
         [Fact]
         public void PlayerOneScoreSixGamesPlayerSecondScoreSixGamesAndKeyGamesNeeded()
         {
-            InitPlayer(SexPlayer.Female);
+            _set = new Set(SexPlayer.Female);
             var gamesPlayerOne = PlayerWinsGames(5);
             var gamesPlayerSecond = PlayerWinsGames(6);
             var nextGamesPlayerOne = PlayerWinsGames(1);
@@ -105,7 +105,7 @@ namespace TennisKatasTest
         [Fact]
         public void PlayersPlaysElevenGamesWithKeyGamesFirstWinsKeyGamesSet()
         {
-            InitPlayer(SexPlayer.Female);
+            _set = new Set(SexPlayer.Female);
             var gamesPlayerOne = PlayerWinsGames(6);
             var gamesPlayerSecond = PlayerWinsGames(6);
 
@@ -129,7 +129,7 @@ namespace TennisKatasTest
         [Fact]
         public void PlayersPlaysElevenGamesWithKeyGamesSecondWinsKeyGamesSet()
         {
-            InitPlayer(SexPlayer.Female);
+            _set = new Set(SexPlayer.Female);
             var gamesPlayerOne = PlayerWinsGames(6);
             var gamesPlayerSecond = PlayerWinsGames(6);
 
@@ -164,7 +164,7 @@ namespace TennisKatasTest
         [Fact]
         public void PlayerOneScoreFiveSetPlayerTwoScoreTwoSetsNoWinner()
         {
-            InitPlayer(SexPlayer.Female);
+            _set = new Set(SexPlayer.Female);
             _set.Score = "5-2";
 
             _set.GetsInfosFromScore();
@@ -178,7 +178,7 @@ namespace TennisKatasTest
         [Fact]
         public void PlayerOneScoreFourSetPlayerTwoScoreFiveSetsNoWinner()
         {
-            InitPlayer(SexPlayer.Female);
+            _set = new Set(SexPlayer.Female);
             _set.Score = "4-5";
 
             _set.GetsInfosFromScore();
@@ -193,7 +193,7 @@ namespace TennisKatasTest
         [Fact]
         public void PlayerOneWinsSixSetPlayerTwoScoresTwoSets()
         {
-            InitPlayer(SexPlayer.Female);
+            _set = new Set(SexPlayer.Female);
             _set.Score = "6-2";
 
             _set.GetsInfosFromScore();
@@ -207,7 +207,7 @@ namespace TennisKatasTest
         [Fact]
         public void PlayerOneScoreThreeSetsPlayerTwoWinsSixSets()
         {
-            InitPlayer(SexPlayer.Female);
+            _set = new Set(SexPlayer.Female);
             _set.Score = "3-6";
 
             _set.GetsInfosFromScore();
@@ -221,7 +221,7 @@ namespace TennisKatasTest
         [Fact]
         public void PlayerOneWinsSevenSetsPlayerTwoScoresSixSets()
         {
-            InitPlayer(SexPlayer.Female);
+            _set = new Set(SexPlayer.Female);
             _set.Score = "7-6";
 
             _set.GetsInfosFromScore();
@@ -235,7 +235,7 @@ namespace TennisKatasTest
         [Fact]
         public void PlayerOneScoreSixSetsPlayerTwoWinsSevenSets()
         {
-            InitPlayer(SexPlayer.Female);
+            _set = new Set(SexPlayer.Female);
             _set.Score = "6-7";
 
             _set.GetsInfosFromScore();
@@ -244,12 +244,6 @@ namespace TennisKatasTest
             Assert.Equal(7, _set.Player2.Score);
             Assert.False(_set.Player1.IsWinner);
             Assert.True(_set.Player2.IsWinner);
-        }
-
-        //TODO revoir cette méthode
-        private void InitPlayer(SexPlayer sexplayer)
-        {
-           _set = new Set(sexplayer);
         }
     }
 }
