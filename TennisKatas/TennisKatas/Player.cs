@@ -13,6 +13,11 @@ namespace TennisKatas
 
         public bool IsWinner { get; set; }
 
+        public Player()
+        {
+
+        }
+
         public Player(SexPlayer sexPlayer)
         {
            SexPlayer = sexPlayer;

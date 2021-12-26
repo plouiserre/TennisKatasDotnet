@@ -3,21 +3,20 @@ using System.Collections.Generic;
 
 namespace TennisKatas
 {
-    //TODO revoir pour l'init des Players
     public class KeyGame
     {
         public Player Player1 { get; set; }
         public Player Player2 { get; set; }
         public string Score { get; set; }
 
-        public KeyGame(SexPlayer sexPlayer)
+        public KeyGame()
         {
-            Player1 = new Player(sexPlayer)
+            Player1 = new Player()
             {
                 Identity = 1,
                 Score = 0
             };
-            Player2 = new Player(sexPlayer)
+            Player2 = new Player()
             {
                 Identity = 2,
                 Score = 0

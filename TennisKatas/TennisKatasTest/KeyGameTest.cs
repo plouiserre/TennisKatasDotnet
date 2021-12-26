@@ -9,7 +9,7 @@ namespace TennisKatasTest
         [Fact]
         public void KeyGameStart()
         {
-            KeyGame keyGame = new KeyGame(SexPlayer.Female);
+            KeyGame keyGame = new KeyGame();
 
             keyGame.StartKeyGame();
 
@@ -23,7 +23,7 @@ namespace TennisKatasTest
         [Fact]
         public void PlayerTwoScoresFourPointsPlayerOneScoresSevenPointsAndWinKeyGames()
         {
-            KeyGame keyGame = new KeyGame(SexPlayer.Female);
+            KeyGame keyGame = new KeyGame();
 
             keyGame.StartKeyGame();
             keyGame.PlayerOneScores(7);
@@ -39,7 +39,7 @@ namespace TennisKatasTest
         [Fact]
         public void PlayerOneScoreFourPointsPlayerTwoScoresSevenPointsAndWinKeyGames()
         {
-            KeyGame keyGame = new KeyGame(SexPlayer.Female);
+            KeyGame keyGame = new KeyGame();
 
             keyGame.StartKeyGame();
             keyGame.PlayerOneScores(4);
@@ -55,7 +55,7 @@ namespace TennisKatasTest
         [Fact]
         public void PlayerOneScoreSevenPointsPlayerTwoScoresSixPointsNoWinner()
         {
-            KeyGame keyGame = new KeyGame(SexPlayer.Female);
+            KeyGame keyGame = new KeyGame();
 
             keyGame.StartKeyGame();
             keyGame.PlayerOneScores(6);
@@ -72,7 +72,7 @@ namespace TennisKatasTest
         [Fact]
         public void PlayerOneScoreSixPointsPlayerTwoScoresEightPointsAndWinGames()
         {
-            KeyGame keyGame = new KeyGame(SexPlayer.Female);
+            KeyGame keyGame = new KeyGame();
 
             keyGame.StartKeyGame();
             keyGame.PlayerOneScores(6);

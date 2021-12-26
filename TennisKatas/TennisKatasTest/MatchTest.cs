@@ -29,8 +29,8 @@ namespace TennisKatasTest
             SexPlayer sexPlayer = SexPlayer.Female;
             InitMatchAndPlayers(sexPlayer);
             var sets = new List<Set>();
-            sets.Add(new Set(sexPlayer) { Score = "6-3" });
-            sets.Add(new Set(sexPlayer) { Score = "6-3" });
+            sets.Add(new Set() { Score = "6-3" });
+            sets.Add(new Set() { Score = "6-3" });
 
             _match.Start();
             _match.PlayersScores(sets);
@@ -44,8 +44,8 @@ namespace TennisKatasTest
             SexPlayer sexPlayer = SexPlayer.Female;
             InitMatchAndPlayers(sexPlayer);
             var sets = new List<Set>();
-            sets.Add(new Set(sexPlayer) { Score = "3-6" });
-            sets.Add(new Set(sexPlayer) { Score = "3-6" });
+            sets.Add(new Set() { Score = "3-6" });
+            sets.Add(new Set() { Score = "3-6" });
 
             _match.Start();
             _match.PlayersScores(sets);
@@ -59,9 +59,9 @@ namespace TennisKatasTest
             SexPlayer sexPlayer = SexPlayer.Female;
             InitMatchAndPlayers(sexPlayer);
             var sets = new List<Set>();
-            sets.Add(new Set(sexPlayer) { Score = "6-2" });
-            sets.Add(new Set(sexPlayer) { Score = "3-6" });
-            sets.Add(new Set(sexPlayer) { Score = "1-6" });
+            sets.Add(new Set() { Score = "6-2" });
+            sets.Add(new Set() { Score = "3-6" });
+            sets.Add(new Set() { Score = "1-6" });
 
             _match.Start();
             _match.PlayersScores(sets);
@@ -75,9 +75,9 @@ namespace TennisKatasTest
             SexPlayer sexPlayer = SexPlayer.Female;
             InitMatchAndPlayers(sexPlayer);
             var sets = new List<Set>();
-            sets.Add(new Set(sexPlayer) { Score = "6-2" });
-            sets.Add(new Set(sexPlayer) { Score = "7-6" });
-            sets.Add(new Set(sexPlayer) { Score = "1-6" });
+            sets.Add(new Set() { Score = "6-2" });
+            sets.Add(new Set() { Score = "7-6" });
+            sets.Add(new Set() { Score = "1-6" });
 
             _match.Start();
             _match.PlayersScores(sets);
@@ -93,9 +93,9 @@ namespace TennisKatasTest
             _match.PlayerOne.SexPlayer = sexPlayer;
             _match.PlayerSecond.SexPlayer = sexPlayer;
             var sets = new List<Set>();
-            sets.Add(new Set(sexPlayer) { Score = "6-2" });
-            sets.Add(new Set(sexPlayer) { Score = "3-6" });
-            sets.Add(new Set(sexPlayer) { Score = "1-6" });
+            sets.Add(new Set() { Score = "6-2" });
+            sets.Add(new Set() { Score = "3-6" });
+            sets.Add(new Set() { Score = "1-6" });
 
             _match.Start();
             _match.PlayersScores(sets);
@@ -109,9 +109,9 @@ namespace TennisKatasTest
             SexPlayer sexPlayer = SexPlayer.Female;
             InitMatchAndPlayers(sexPlayer);
             var sets = new List<Set>();
-            sets.Add(new Set(sexPlayer) { Score = "6-2" });
-            sets.Add(new Set(sexPlayer) { Score = "7-6" });
-            sets.Add(new Set(sexPlayer) { Score = "1-6" });
+            sets.Add(new Set() { Score = "6-2" });
+            sets.Add(new Set() { Score = "7-6" });
+            sets.Add(new Set() { Score = "1-6" });
 
             _match.Start();
             _match.PlayersScores(sets);
@@ -125,9 +125,9 @@ namespace TennisKatasTest
             SexPlayer sexPlayer = SexPlayer.Female;
             InitMatchAndPlayers(sexPlayer);
             var sets = new List<Set>();
-            sets.Add(new Set(sexPlayer) { Score = "6-2" });
-            sets.Add(new Set(sexPlayer) { Score = "6-7" });
-            sets.Add(new Set(sexPlayer) { Score = "6-7" });
+            sets.Add(new Set() { Score = "6-2" });
+            sets.Add(new Set() { Score = "6-7" });
+            sets.Add(new Set() { Score = "6-7" });
 
             _match.Start();
             _match.PlayersScores(sets);
@@ -141,11 +141,11 @@ namespace TennisKatasTest
             SexPlayer sexPlayer = SexPlayer.Male;
             InitMatchAndPlayers(sexPlayer);
             var sets = new List<Set>();
-            sets.Add(new Set(sexPlayer) { Score = "6-2" });
-            sets.Add(new Set(sexPlayer) { Score = "7-6" });
-            sets.Add(new Set(sexPlayer) { Score = "1-6" });
-            sets.Add(new Set(sexPlayer) { Score = "6-2" });
-            sets.Add(new Set(sexPlayer) { Score = "4-6" });
+            sets.Add(new Set() { Score = "6-2" });
+            sets.Add(new Set() { Score = "7-6" });
+            sets.Add(new Set() { Score = "1-6" });
+            sets.Add(new Set() { Score = "6-2" });
+            sets.Add(new Set() { Score = "4-6" });
 
             _match.Start();
             _match.PlayersScores(sets);
@@ -159,10 +159,10 @@ namespace TennisKatasTest
             SexPlayer sexPlayer = SexPlayer.Male;
             InitMatchAndPlayers(sexPlayer);
             var sets = new List<Set>();
-            sets.Add(new Set(sexPlayer) { Score = "6-2" });
-            sets.Add(new Set(sexPlayer) { Score = "6-7" });
-            sets.Add(new Set(sexPlayer) { Score = "6-7" });
-            sets.Add(new Set(sexPlayer) { Score = "4-6" });
+            sets.Add(new Set() { Score = "6-2" });
+            sets.Add(new Set() { Score = "6-7" });
+            sets.Add(new Set() { Score = "6-7" });
+            sets.Add(new Set() { Score = "4-6" });
 
             _match.Start();
             _match.PlayersScores(sets);

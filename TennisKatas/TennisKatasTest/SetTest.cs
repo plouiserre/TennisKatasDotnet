@@ -18,7 +18,7 @@ namespace TennisKatasTest
         [Fact]
         public void SetStart()
         {
-            _set = new Set(SexPlayer.Female);
+            _set = new Set();
 
             _set.SetStart();
 
@@ -28,7 +28,7 @@ namespace TennisKatasTest
         [Fact]
         public void PlayersPlaysNineGameOneWinsSixGamesSecondWinsThreeGamesOneWinsSet()
         {
-            _set = new Set(SexPlayer.Female);
+            _set = new Set();
             var gamesPlayerOne = PlayerWinsGames(6);
             var gamesPlayerSecond = PlayerWinsGames(3);
 
@@ -46,7 +46,7 @@ namespace TennisKatasTest
         [Fact]
         public void PlayersPlaysEightGameOneWinsTwoGamesSecondWinsSixGamesSecondWinsSet()
         {
-            _set = new Set(SexPlayer.Female);
+            _set = new Set();
             var gamesPlayerOne = PlayerWinsGames(2);
             var gamesPlayerSecond = PlayerWinsGames(6);
 
@@ -64,7 +64,7 @@ namespace TennisKatasTest
         [Fact]
         public void PlayerOneScoreSixGamesPlayerSecondScoreFiveGameNoWinner()
         {
-            _set = new Set(SexPlayer.Female);
+            _set = new Set();
             var gamesPlayerOne = PlayerWinsGames(5);
             var gamesPlayerSecond = PlayerWinsGames(5);
             var nextGamesPlayerOne = PlayerWinsGames(1);
@@ -84,7 +84,7 @@ namespace TennisKatasTest
         [Fact]
         public void PlayerOneScoreSixGamesPlayerSecondScoreSixGamesAndKeyGamesNeeded()
         {
-            _set = new Set(SexPlayer.Female);
+            _set = new Set();
             var gamesPlayerOne = PlayerWinsGames(5);
             var gamesPlayerSecond = PlayerWinsGames(6);
             var nextGamesPlayerOne = PlayerWinsGames(1);
@@ -105,7 +105,7 @@ namespace TennisKatasTest
         [Fact]
         public void PlayersPlaysElevenGamesWithKeyGamesFirstWinsKeyGamesSet()
         {
-            _set = new Set(SexPlayer.Female);
+            _set = new Set();
             var gamesPlayerOne = PlayerWinsGames(6);
             var gamesPlayerSecond = PlayerWinsGames(6);
 
@@ -129,7 +129,7 @@ namespace TennisKatasTest
         [Fact]
         public void PlayersPlaysElevenGamesWithKeyGamesSecondWinsKeyGamesSet()
         {
-            _set = new Set(SexPlayer.Female);
+            _set = new Set();
             var gamesPlayerOne = PlayerWinsGames(6);
             var gamesPlayerSecond = PlayerWinsGames(6);
 
@@ -164,7 +164,7 @@ namespace TennisKatasTest
         [Fact]
         public void PlayerOneScoreFiveSetPlayerTwoScoreTwoSetsNoWinner()
         {
-            _set = new Set(SexPlayer.Female);
+            _set = new Set();
             _set.Score = "5-2";
 
             _set.GetsInfosFromScore();
@@ -178,7 +178,7 @@ namespace TennisKatasTest
         [Fact]
         public void PlayerOneScoreFourSetPlayerTwoScoreFiveSetsNoWinner()
         {
-            _set = new Set(SexPlayer.Female);
+            _set = new Set();
             _set.Score = "4-5";
 
             _set.GetsInfosFromScore();
@@ -193,7 +193,7 @@ namespace TennisKatasTest
         [Fact]
         public void PlayerOneWinsSixSetPlayerTwoScoresTwoSets()
         {
-            _set = new Set(SexPlayer.Female);
+            _set = new Set();
             _set.Score = "6-2";
 
             _set.GetsInfosFromScore();
@@ -207,7 +207,7 @@ namespace TennisKatasTest
         [Fact]
         public void PlayerOneScoreThreeSetsPlayerTwoWinsSixSets()
         {
-            _set = new Set(SexPlayer.Female);
+            _set = new Set();
             _set.Score = "3-6";
 
             _set.GetsInfosFromScore();
@@ -221,7 +221,7 @@ namespace TennisKatasTest
         [Fact]
         public void PlayerOneWinsSevenSetsPlayerTwoScoresSixSets()
         {
-            _set = new Set(SexPlayer.Female);
+            _set = new Set();
             _set.Score = "7-6";
 
             _set.GetsInfosFromScore();
@@ -235,7 +235,7 @@ namespace TennisKatasTest
         [Fact]
         public void PlayerOneScoreSixSetsPlayerTwoWinsSevenSets()
         {
-            _set = new Set(SexPlayer.Female);
+            _set = new Set();
             _set.Score = "6-7";
 
             _set.GetsInfosFromScore();
