@@ -10,27 +10,21 @@ namespace TennisKatas
         public Player PlayerSecond { get; set; }
         public string Score { get; set; }
 
-        public Match(SexPlayer sexPlayer)
+        public Match(Player playerOne, Player playerSecond)
+        {
+            PlayerOne = playerOne;
+            PlayerSecond = playerSecond;
+        }
+
+       /* public Match(SexPlayer sexPlayer)
         {
             PlayerOne = new Player(sexPlayer);
             PlayerSecond = new Player(sexPlayer);
-        }
+        }*/
 
         public void Start()
         {
             Score = "0-0";
-        }
-
-        public void PlayerFirstScores(List<Set> sets)
-        {
-            Score = "6-3 6-3 6-3";
-            PlayerOne.IsWinner = true;
-        }
-
-        public void PlayerSecondScores(List<Set> sets)
-        {
-            Score = "3-6 3-6 3-6";
-            PlayerSecond.IsWinner = true;
         }
 
         public void PlayersScores(List<Set> sets)
@@ -66,7 +60,7 @@ namespace TennisKatas
             bool isFemalePlayers = PlayerOne.SexPlayer == SexPlayer.Female && PlayerSecond.SexPlayer == SexPlayer.Female;
             if (isMalesPlayers)
             {
-                bool isSomeOneScoreToWinning = setsWinsByFirstPlayer.Count >= 4 || setsWinsBySecondPlayer.Count >= 4;
+                bool isSomeOneScoreToWinning = setsWinsByFirstPlayer.Count >= 3 || setsWinsBySecondPlayer.Count >= 3;
                 return isSomeOneScoreToWinning;
             }
             else if (isFemalePlayers)
