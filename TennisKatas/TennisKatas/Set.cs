@@ -46,7 +46,6 @@ namespace TennisKatas
         {
             for (int i = 0; i < games; i++)
             {
-                //TODO améliorer
                 int score = player.Score + 1;
                 player.Score = score;
             }

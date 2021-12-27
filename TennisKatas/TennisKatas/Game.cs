@@ -4,11 +4,8 @@ using System.Linq;
 
 namespace TennisKatas
 {
-    //TODO factoriser dans une classe mère surtout la partie joueur
-    //TODO revoir pour l'init des Players
-    public class Game
+    public class Game 
     {
-
         public Player Player1 { get; set; }
 
         public Player Player2 { get; set; }
@@ -36,20 +33,19 @@ namespace TennisKatas
 
         public void PlayerOneScores()
         {
-            DetermineScore(Player1,1);
+            DetermineScore(Player1);
             Player1.IsWinner = Player1.Score == 40 ? true : false;
             GetScore();
         }
 
         public void PlayerSecondScores()
         {
-            DetermineScore(Player2, 2) ;
+            DetermineScore(Player2) ;
             Player2.IsWinner = Player2.Score == 40 ? true : false;
             GetScore();
         }
 
-        //TODO modifier cette méthode car elle est nulle
-        private void DetermineScore(Player player, int keyPlayer)
+        private void DetermineScore(Player player)
         {
             if (player.Score == 0)
             {
@@ -63,10 +59,10 @@ namespace TennisKatas
             {
                 player.Score = 50;
             }
-            else if((Player1.Score == 50 && keyPlayer == 2) || (Player2.Score == 50 && keyPlayer == 1))
+            else if((Player1.Score == 50 && player.Identity == 2) || (Player2.Score == 50 && player.Identity == 1))
             {
                 //on baisse le score de l'autre adversaire
-                if(keyPlayer == 1)
+                if(player.Identity == 1)
                 {
                     Player2.Score = 40;
                 }
