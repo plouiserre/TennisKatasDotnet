@@ -6,6 +6,8 @@ namespace TennisKatas
 {
     public class Match
     {
+        private List<Set> _setsWinsByFirstPlayer { get; set; }
+        private List<Set> _setsWinsBySecondPlayer { get; set; }
         public Player PlayerOne { get; set; }
         public Player PlayerSecond { get; set; }
         public string Score { get; set; }
@@ -15,12 +17,6 @@ namespace TennisKatas
             PlayerOne = playerOne;
             PlayerSecond = playerSecond;
         }
-
-       /* public Match(SexPlayer sexPlayer)
-        {
-            PlayerOne = new Player(sexPlayer);
-            PlayerSecond = new Player(sexPlayer);
-        }*/
 
         public void Start()
         {
@@ -42,36 +38,35 @@ namespace TennisKatas
 
         private void DetermineWinner(List<Set> sets)
         {
-            List<Set> setsWinsByFirstPlayer = sets.Where(o => o.Player1.IsWinner).ToList();
-            List<Set> setsWinsBySecondPlayer = sets.Where(o => o.Player2.IsWinner).ToList();
-            bool isMatchFinished = IsMatchFinished(setsWinsByFirstPlayer, setsWinsBySecondPlayer);
+            _setsWinsByFirstPlayer = sets.Where(o => o.Player1.IsWinner).ToList();
+            _setsWinsBySecondPlayer = sets.Where(o => o.Player2.IsWinner).ToList();
+            bool isMatchFinished = IsMatchFinished();
             if (isMatchFinished) { 
-                if (setsWinsByFirstPlayer.Count > setsWinsBySecondPlayer.Count)
+                if (_setsWinsByFirstPlayer.Count > _setsWinsBySecondPlayer.Count)
                     PlayerOne.IsWinner = true;
-                else if (setsWinsBySecondPlayer.Count > setsWinsByFirstPlayer.Count)
+                else if (_setsWinsBySecondPlayer.Count > _setsWinsByFirstPlayer.Count)
                     PlayerSecond.IsWinner = true;
             }
         }
 
-        //TODO améliorer
-        private bool IsMatchFinished(List<Set> setsWinsByFirstPlayer, List<Set> setsWinsBySecondPlayer)
+        private bool IsMatchFinished()
         {
             bool isMalesPlayers = PlayerOne.SexPlayer == SexPlayer.Male && PlayerSecond.SexPlayer == SexPlayer.Male;
             bool isFemalePlayers = PlayerOne.SexPlayer == SexPlayer.Female && PlayerSecond.SexPlayer == SexPlayer.Female;
-            if (isMalesPlayers)
-            {
-                bool isSomeOneScoreToWinning = setsWinsByFirstPlayer.Count >= 3 || setsWinsBySecondPlayer.Count >= 3;
-                return isSomeOneScoreToWinning;
-            }
-            else if (isFemalePlayers)
-            {
-                bool isSomeOneScoreToWinning = setsWinsByFirstPlayer.Count >= 2 || setsWinsBySecondPlayer.Count >= 2;
-                return isSomeOneScoreToWinning;
-            }
-            else
-            {
+            if (!isMalesPlayers && !isFemalePlayers)
                 return false;
-            }
+
+            int minToSet = isMalesPlayers ? 3 : 2;
+
+            bool isSomeOneScoreToWinning = IsSomeOneWinning(minToSet);
+            return isSomeOneScoreToWinning;
+
+        }
+
+        private bool IsSomeOneWinning(int minSet)
+        {
+            bool isSomeOneScoreToWinning = _setsWinsByFirstPlayer.Count >= minSet || _setsWinsBySecondPlayer.Count >= minSet;
+            return isSomeOneScoreToWinning;
         }
     }
 }
